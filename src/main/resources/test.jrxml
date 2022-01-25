@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="test" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+			  topMargin="20" bottomMargin="20" uuid="143a3275-0383-427e-8c01-2230d3b4820d">
+
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+
+
+	<!--	<property name="net.sf.jasperreports.awt.ignore.missing.font" value="true"/>-->
+
+<!--	<style name="Base" isDefault="true" fontName="Kalpurush" fontSize="10"/>-->
+
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="227" y="24" width="100" height="30" uuid="7eda20ac-f425-401a-a8ae-233242dd9f12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+<!--					<font fontName="Arial Black" size="16" isBold="true"/>-->
+				</textElement>
+				<text><![CDATA[Title]]></text>
+			</staticText>
+		</band>
+	</title>
+<!--	<pageHeader>-->
+<!--		<band height="35" splitType="Stretch"/>-->
+<!--	</pageHeader>-->
+<!--	<columnHeader>-->
+<!--		<band height="61" splitType="Stretch"/>-->
+<!--	</columnHeader>-->
+	<detail>
+		<band height="600" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="30" width="560" height="30" uuid="f8fa1e4c-c100-4aa0-a7e6-afe3432c9fa1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" fontName="Kalpurush"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ক্ট = ক + ট; যেমন: ডক্টর, অক্টোপাস (মন্তব্য: এই যুক্তাক্ষরটি মূলত ইংরেজি/বিদেশী ঋণকৃত শব্দে ব্যবহৃত):"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="560" height="30" uuid="c98d3bc2-5732-425d-929a-fe5b70f1faf0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"  fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["محمد طيب الرحمن"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="90" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["محمد راشد الاسلام"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="120" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["عبيد الرحمن راقب"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="150" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["هداية الله"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="180" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["محمد نور العالم"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="210" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["محمد ربيع الاسلام"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="240" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["محمد نعمة الله"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="270" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["محمد إسماعيل حسين"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="300" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["محمد ابو ريحان"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="330" width="560" height="30" uuid="cfed4e1b-d14e-476e-a5f7-97faff54d0e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" fontName="ArialBold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["حميد الشيخ"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+<!--	<columnFooter>-->
+<!--		<band height="45" splitType="Stretch"/>-->
+<!--	</columnFooter>-->
+<!--	<pageFooter>-->
+<!--		<band height="54" splitType="Stretch"/>-->
+<!--	</pageFooter>-->
+<!--	<summary>-->
+<!--		<band height="42" splitType="Stretch"/>-->
+<!--	</summary>-->
+</jasperReport>
