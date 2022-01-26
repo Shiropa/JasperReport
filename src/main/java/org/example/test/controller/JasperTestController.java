@@ -24,11 +24,13 @@ public class JasperTestController {
     @GetMapping(value = "/export")
     public void export(HttpServletResponse response) throws IOException, JRException {
 
-        response.setContentType("application/x-download");
-        response.setHeader("Content-Disposition", "attachment; filename=\"report.pdf\"");
+//        response.setContentType("application/x-download");
+        response.setContentType("application/pdf");
+//        response.setHeader("Content-Disposition", "attachment; filename=\"report.pdf\""); //for download
+        response.setHeader("Content-Disposition", "inline; filename=\"report.pdf\""); //for show
 
         OutputStream out = response.getOutputStream();
-        JasperPrint jasperPrint = service.exportPdfFile();
+        JasperPrint jasperPrint = service.exportMadrashaPdfFile();
         JasperExportManager.exportReportToPdfStream(jasperPrint, out);
     }
 }
