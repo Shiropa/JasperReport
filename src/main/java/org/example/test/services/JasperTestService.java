@@ -4,7 +4,6 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.example.test.database.entities.Registration;
 import org.example.test.database.repositories.BoardRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +35,10 @@ public class JasperTestService {
 
         List<Registration> results = getData();
 
+//        if (!results.isEmpty())
+//            results.add(0, results.get(0));
+
+
         String path = resourceLoader.getResource("classpath:registered_applicant.jrxml").getURI().getPath();
 
         JasperReport jasperReport = JasperCompileManager.compileReport(path);
@@ -46,6 +49,7 @@ public class JasperTestService {
         parameters.put("board", results.get(0).getMadrasah().getBoard().getNameBn());
         parameters.put("madrasah", results.get(0).getMadrasah().getNameBn());
         parameters.put("items", results);
+        parameters.put("service", new HelperService());
 
         return JasperFillManager.fillReport(jasperReport, parameters, dataSource);
     }

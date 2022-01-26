@@ -74,5 +74,7 @@ public class Registration {
 
 	private Timestamp createdOn;
 
+	private String arabicName;
+
 }
 

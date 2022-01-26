@@ -33,14 +33,14 @@
 	</style>
 
 	<subDataset name="data" uuid="03e4be71-cd23-408c-b88b-860e37343d85">
-		<parameter name="items" class="java.lang.List"/>
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
 		<field name="registrationId" class="java.lang.String"/>
 		<field name="name" class="java.lang.String"/>
 		<field name="nameBn" class="java.lang.String"/>
-		<field name="nameAr" class="java.lang.String"/>
+<!--		<field name="nameAr" class="java.lang.String"/>-->
+		<field name="arabicName" class="java.lang.String"/>
 		<field name="fatherName" class="java.lang.String"/>
 		<field name="fatherNameBn" class="java.lang.String"/>
 		<field name="fatherNameAr" class="java.lang.String"/>
@@ -51,8 +51,10 @@
 		<field name="applicantType.nameBn" class="java.lang.String"/>
 	</subDataset>
 
+	<parameter name="items" class="java.util.List"/>
 	<parameter name="board" class="java.lang.String"/>
 	<parameter name="madrasah" class="java.lang.String"/>
+
 
 	<queryString>
 		<![CDATA[]]>
@@ -169,11 +171,11 @@
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="data" uuid="b3dde82f-78b9-4992-a01e-21af76855c4b">
-						<dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}]]></dataSourceExpression>
-<!--						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{items})]]></dataSourceExpression>-->
+<!--						<dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}]]></dataSourceExpression>-->
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{items})]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="40" uuid="37d0a257-a576-43e0-8f78-99a7e03cb094">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+<!--						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>-->
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="40" height="30" uuid="eedd5aa6-e93b-46fa-a3d4-759c871c1e61"/>
@@ -188,12 +190,12 @@
 								<reportElement x="0" y="0" width="40" height="70" uuid="099dcc30-1712-4914-bee2-c7294962ca23"/>
 								<box padding="3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+<!--								<textFieldExpression><![CDATA[$P{service}.toBnStr($V{REPORT_COUNT}.toString())]]></textFieldExpression>-->
 								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="80" uuid="c3a0c33e-34bd-413e-bd07-20eedbdf3a94">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="80" height="30" uuid="0b08f63c-8627-4381-929a-ca2605bc1eb6"/>
@@ -213,7 +215,6 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="112" uuid="eeeac8a9-f822-4b88-88ca-48e77a690c32">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="112" height="30" uuid="2905c7f5-9cb9-4f70-9fa8-0a11ff1c424e"/>
@@ -243,12 +244,11 @@
 								<textElement textAlignment="Left" verticalAlignment="Middle">
 									<font fontName="ArialBold"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{nameAr}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{arabicName}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="112" uuid="eeeac8a9-f822-4b88-88ca-48e77a690c32">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="112" height="30" uuid="2905c7f5-9cb9-4f70-9fa8-0a11ff1c424e"/>
@@ -283,7 +283,6 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="112" uuid="abe9fadc-3477-42d0-b424-0b7ba7487bc7">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement mode="Transparent" x="0" y="0" width="112" height="30" uuid="94f34cd3-2bb8-466d-a643-310a84fdb40e"/>
@@ -318,7 +317,6 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="80" uuid="8d3223ec-0fc0-4df3-ad43-33f6269ed776">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="80" height="30" uuid="ea7647c3-33c4-4899-a262-6555a6e56540"/>
@@ -339,7 +337,6 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="85" uuid="eeeac8a9-f822-4b88-88ca-48e77a690c32">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="85" height="30" uuid="2905c7f5-9cb9-4f70-9fa8-0a11ff1c424e"/>
@@ -360,7 +357,6 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="80" uuid="8d3223ec-0fc0-4df3-ad43-33f6269ed776">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="80" height="30" uuid="ea7647c3-33c4-4899-a262-6555a6e56540"/>
@@ -381,7 +377,6 @@
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="90" uuid="8d3223ec-0fc0-4df3-ad43-33f6269ed776">
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="90" height="30" uuid="ea7647c3-33c4-4899-a262-6555a6e56540"/>
