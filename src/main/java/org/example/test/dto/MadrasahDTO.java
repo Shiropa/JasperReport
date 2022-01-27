@@ -28,7 +28,9 @@ public class MadrasahDTO {
 
 	private String phone;
 
-	private Integer boardId;
+//	private Integer boardId;
+
+	private BoardDTO board;
 
 	List<RegistrationDTO> registrations;
 

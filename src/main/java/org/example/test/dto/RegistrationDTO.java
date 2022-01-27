@@ -1,6 +1,8 @@
 package org.example.test.dto;
 
 import lombok.Data;
+import org.example.test.database.entities.ApplicantType;
+import org.example.test.database.entities.Madrasah;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -53,16 +55,20 @@ public class RegistrationDTO {
 	private String thana;
 
 	private Integer districtId;
-
-	private Integer applicantTypeId;
-
-	private Integer madrasahId;
+//
+//	private Integer applicantTypeId;
+//
+//	private Integer madrasahId;
 
 	private Boolean isDeleted;
 
 	private Timestamp createdOn;
 
 	private String arabicName;
+
+	private MadrasahDTO madrasah;
+
+	private ApplicantTypeDTO applicantType;
 
 }
 

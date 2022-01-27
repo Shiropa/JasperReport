@@ -45,7 +45,6 @@
 		<field name="motherNameBn" class="java.lang.String"/>
 		<field name="motherNameAr" class="java.lang.String"/>
 		<field name="dateOfBirth" class="java.time.LocalDate"/>
-		<field name="madrasahId" class="java.lang.Integer"/>
 	</subDataset>
 	<subDataset name="madrasah" uuid="03e4be71-cd23-408c-b88b-860e37343d85">
 		<queryString>
@@ -104,9 +103,11 @@
 					</datasetRun>
 					<jr:listContents height="105" width="560">
 						<textField>
-							<reportElement x="5" y="0" width="250" height="30" uuid="f69297c6-992e-4ac5-b52c-29e8dbabfd06"/>
-							<textElement verticalAlignment="Middle"/>
-							<textFieldExpression><![CDATA[$F{id} + "-" + $F{nameBn}]]></textFieldExpression>
+							<reportElement x="5" y="0" width="550" height="30" uuid="f69297c6-992e-4ac5-b52c-29e8dbabfd06"/>
+							<textElement verticalAlignment="Middle">
+								<font size="14" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{nameBn}]]></textFieldExpression>
 						</textField>
 						<componentElement>
 							<reportElement x="9" y="30" width="530" height="70" uuid="5f02cb7d-2d32-405a-a4e4-cb55c18b49b3">
@@ -234,7 +235,7 @@
 											<reportElement x="0" y="0" width="113" height="30" uuid="099dcc30-1712-4914-bee2-c7294962ca22"/>
 											<box padding="3"/>
 											<textElement textAlignment="Center" verticalAlignment="Middle"/>
-											<textFieldExpression><![CDATA[$F{madrasahId}]]></textFieldExpression>
+											<textFieldExpression><![CDATA[$F{dateOfBirth}]]></textFieldExpression>
 										</textField>
 									</jr:detailCell>
 								</jr:column>

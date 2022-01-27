@@ -12,6 +12,10 @@ public class Madrasah {
 	@Id
 	private Short id;
 
+	@ManyToOne
+	@JoinColumn(name = "board_id", columnDefinition = "int4")
+	private Board board;
+
 	private String code;
 
 	private String name;
@@ -33,11 +37,6 @@ public class Madrasah {
 	private String phone;
 
 //	private Integer boardId;
-
-
-	@ManyToOne
-	@JoinColumn(name = "board_id", columnDefinition = "int4")
-	private Board board;
 
 }
 

@@ -36,10 +36,10 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
-		<field name="registrationId" class="java.lang.String"/>
+		<field name="registrationId" class="java.lang.Integer"/>
 		<field name="name" class="java.lang.String"/>
 		<field name="nameBn" class="java.lang.String"/>
-<!--		<field name="nameAr" class="java.lang.String"/>-->
+		<field name="nameAr" class="java.lang.String"/>
 		<field name="arabicName" class="java.lang.String"/>
 		<field name="fatherName" class="java.lang.String"/>
 		<field name="fatherNameBn" class="java.lang.String"/>
@@ -49,6 +49,9 @@
 		<field name="motherNameAr" class="java.lang.String"/>
 		<field name="dateOfBirth" class="java.time.LocalDate"/>
 		<field name="applicantType.nameBn" class="java.lang.String"/>
+		<field name="serialNoBn" class="java.lang.String"/>
+		<field name="dateOfBirthBn" class="java.lang.String"/>
+		<field name="registrationIdBn" class="java.lang.String"/>
 	</subDataset>
 
 	<parameter name="items" class="java.util.List"/>
@@ -157,7 +160,7 @@
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["1"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["১"]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="170" splitType="Stretch">
@@ -191,7 +194,8 @@
 								<box padding="3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 <!--								<textFieldExpression><![CDATA[$P{service}.toBnStr($V{REPORT_COUNT}.toString())]]></textFieldExpression>-->
-								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+<!--								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>-->
+								<textFieldExpression><![CDATA[$F{serialNoBn}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -210,7 +214,7 @@
 								<reportElement x="0" y="0" width="80" height="70" uuid="ce7052b9-0ddd-4774-b51d-3d7789701ce6"/>
 								<box padding="3"/>
 								<textElement textAlignment="Left" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{registrationId}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{registrationIdBn}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -332,7 +336,7 @@
 								<reportElement x="0" y="0" width="80" height="70" uuid="099dcc30-1712-4914-bee2-c7294962ca22"/>
 								<box padding="3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{dateOfBirth}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{dateOfBirthBn}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

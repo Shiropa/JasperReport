@@ -21,8 +21,8 @@ public class JasperTestController {
     @Autowired
     private JasperTestService service;
 
-    @GetMapping(value = "/export")
-    public void export(HttpServletResponse response) throws IOException, JRException {
+    @GetMapping(value = "/registered-applicant")
+    public void registeredApplicant(HttpServletResponse response) throws IOException, JRException {
 
 //        response.setContentType("application/x-download");
         response.setContentType("application/pdf");
@@ -30,7 +30,20 @@ public class JasperTestController {
         response.setHeader("Content-Disposition", "inline; filename=\"report.pdf\""); //for show
 
         OutputStream out = response.getOutputStream();
-        JasperPrint jasperPrint = service.exportMadrashaPdfFile();
+        JasperPrint jasperPrint = service.exportRegistrationPdfFile();
+        JasperExportManager.exportReportToPdfStream(jasperPrint, out);
+    }
+
+    @GetMapping(value = "/all-madrasah")
+    public void allMadrasah(HttpServletResponse response) throws IOException, JRException {
+
+//        response.setContentType("application/x-download");
+        response.setContentType("application/pdf");
+//        response.setHeader("Content-Disposition", "attachment; filename=\"report.pdf\""); //for download
+        response.setHeader("Content-Disposition", "inline; filename=\"report.pdf\""); //for show
+
+        OutputStream out = response.getOutputStream();
+        JasperPrint jasperPrint = service.exportMadrasahPdfFile();
         JasperExportManager.exportReportToPdfStream(jasperPrint, out);
     }
 }
