@@ -37,9 +37,7 @@ public class JasperTestController {
     @GetMapping(value = "/all-madrasah")
     public void allMadrasah(HttpServletResponse response) throws IOException, JRException {
 
-//        response.setContentType("application/x-download");
         response.setContentType("application/pdf");
-//        response.setHeader("Content-Disposition", "attachment; filename=\"report.pdf\""); //for download
         response.setHeader("Content-Disposition", "inline; filename=\"report.pdf\""); //for show
 
         OutputStream out = response.getOutputStream();

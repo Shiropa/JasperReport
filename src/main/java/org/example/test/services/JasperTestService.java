@@ -15,18 +15,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -93,13 +89,13 @@ public class JasperTestService {
         parameters.put("data", results);
 
         return JasperFillManager.fillReport(
-                JasperCompileManager.compileReport(resourceLoader.getResource("classpath:madrasha_with_applicant.jrxml").getURI().getPath()),
-                parameters, new JRBeanCollectionDataSource(results));
+                JasperCompileManager.compileReport(resourceLoader.getResource("classpath:madrasah_with_applicant.jrxml").getURI().getPath()),
+                parameters, new JREmptyDataSource());
     }
 
 
     private List<MadrasahDTO> getAllMadrasahWithApplicant() {
-        List<Madrasah> madrasahs = madrasahRepository.findByOrderByIdAsc();
+        List<Madrasah> madrasahs = madrasahRepository.findAll();
         List<Registration> registrations = registrationRepository.findAll();
 
         return madrasahs.stream().map(m -> {

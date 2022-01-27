@@ -50,7 +50,6 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
-		<field name="id" class="java.lang.Short"/>
 		<field name="code" class="java.lang.String"/>
 		<field name="nameBn" class="java.lang.String"/>
 		<field name="registrations" class="java.util.List"/>
