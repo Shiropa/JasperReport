@@ -56,9 +56,10 @@ public class JasperTestService {
         parameters.put("madrasah", results.get(0).getMadrasah().getNameBn());
         parameters.put("items", results);
 
+//        classpath:report/registered_applicant.jrxml
 //        return JasperFillManager.fillReport(jasperReport, parameters, new JRBeanCollectionDataSource(results));
         return JasperFillManager.fillReport(
-                JasperCompileManager.compileReport(resourceLoader.getResource("classpath:registered_applicant.jrxml").getURI().getPath()),
+                JasperCompileManager.compileReport(resourceLoader.getResource("classpath:report/registered_applicant.jrxml").getURI().getPath()),
                 parameters, new JREmptyDataSource());
     }
 
@@ -87,9 +88,9 @@ public class JasperTestService {
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("data", results);
-
+//        classpath:report/madrasah_with_applicant.jrxml
         return JasperFillManager.fillReport(
-                JasperCompileManager.compileReport(resourceLoader.getResource("classpath:madrasah_with_applicant.jrxml").getURI().getPath()),
+                JasperCompileManager.compileReport(resourceLoader.getResource("classpath:report/madrasah_with_applicant.jrxml").getURI().getPath()),
                 parameters, new JREmptyDataSource());
     }
 
@@ -105,9 +106,8 @@ public class JasperTestService {
                     registrationList.stream().map(r -> new ModelMapper().map(r, RegistrationDTO.class)).collect(Collectors.toList())
             );
             return madrasahDTO;
-        }).collect(Collectors.toList());
-
-
+        }).filter(f -> !f.getRegistrations().isEmpty()).collect(Collectors.toList());
+        
     }
 
 

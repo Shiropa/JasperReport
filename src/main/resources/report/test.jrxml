@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.0.final using JasperReports Library version 6.12.1-ac0eebdb29e4c0985457bab279a6db744d661530  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="TEST" pageWidth="1079" pageHeight="595" orientation="Landscape" columnWidth="1025" leftMargin="27"
+              rightMargin="27" topMargin="27" bottomMargin="27" uuid="2e0bd4c9-702e-4814-a055-175b1de46693">
+    <property name="net.sf.jasperreports.data.adapter" value="../DataAdapter.xml"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+    <style name="ReportCaption" hTextAlign="Center" vTextAlign="Middle" fontName="Arial" fontSize="16"/>
+    <style name="Crosstab_CH" mode="Opaque" backcolor="#F0F8FF"/>
+    <style name="Crosstab_CG" mode="Opaque" forecolor="#FFFFFF" backcolor="#127AC4" hTextAlign="Center"
+           vTextAlign="Middle" fontName="Arial" fontSize="11" isBold="true"/>
+    <style name="Crosstab_CT" mode="Opaque" backcolor="#005FB3"/>
+    <style name="Crosstab_CD" mode="Opaque" backcolor="#FFFFFF" hTextAlign="Right" vTextAlign="Middle" fontName="Arial"
+           fontSize="11"/>
+    <style name="cd" style="Crosstab_CD" hTextAlign="Right" vTextAlign="Middle"/>
+    <subDataset name="CrossDataset" uuid="3e44255d-a291-45cc-9524-42949393aeb0">
+        <queryString>
+            <![CDATA[/object/recordset/record]]>
+        </queryString>
+        <field name="NAME" class="java.lang.String">
+            <fieldDescription><![CDATA[NAME]]></fieldDescription>
+        </field>
+        <field name="G" class="java.lang.String">
+            <fieldDescription><![CDATA[G]]></fieldDescription>
+        </field>
+        <field name="Y" class="java.lang.String">
+            <fieldDescription><![CDATA[Y]]></fieldDescription>
+        </field>
+        <field name="M" class="java.lang.String">
+            <fieldDescription><![CDATA[M]]></fieldDescription>
+        </field>
+        <field name="VALUE" class="java.lang.String">
+            <fieldDescription><![CDATA[VALUE]]></fieldDescription>
+        </field>
+    </subDataset>
+    <queryString language="XPath">
+        <![CDATA[/object]]>
+    </queryString>
+    <field name="TITLE" class="java.lang.String">
+        <fieldDescription><![CDATA[//TITLE]]></fieldDescription>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="29" splitType="Stretch">
+            <textField>
+                <reportElement style="ReportCaption" x="0" y="0" width="1025" height="20"
+                               uuid="c21bd612-04c1-4dcb-9850-4080583244cc">
+                    <property name="net.sf.jasperreports.export.html.class" value="switchOffTableBorderCollapse"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{TITLE}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <detail>
+        <band height="90" splitType="Stretch">
+            <crosstab>
+                <reportElement x="0" y="0" width="1025" height="90" uuid="7a3675d5-eaeb-4837-896a-a4879bcbc42e"/>
+                <crosstabDataset>
+                    <dataset resetType="Report">
+                        <datasetRun subDataset="CrossDataset" uuid="0e187533-a760-4de8-8cca-e31c0a0f90c0">
+                            <dataSourceExpression>
+                                <![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/object/recordset/record")]]></dataSourceExpression>
+                        </datasetRun>
+                    </dataset>
+                </crosstabDataset>
+                <crosstabHeaderCell>
+                    <cellContents backcolor="#127AC4" mode="Opaque">
+                        <box>
+                            <topPen lineWidth="0.5" lineStyle="Solid" lineColor="#7DBEE3"/>
+                            <leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#7DBEE3"/>
+                            <rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#7DBEE3"/>
+                        </box>
+                    </cellContents>
+                </crosstabHeaderCell>
+                <rowGroup name="name" width="310">
+                    <bucket class="java.lang.String">
+                        <bucketExpression><![CDATA[$F{NAME}]]></bucketExpression>
+                    </bucket>
+                    <crosstabRowHeader>
+                        <cellContents mode="Opaque" style="Crosstab_CH">
+                            <textField textAdjust="StretchHeight">
+                                <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="310" height="20"
+                                               isPrintInFirstWholeBand="true"
+                                               uuid="83448d1b-55c2-45fe-967b-95dc9152a240">
+                                    <property name="net.sf.jasperreports.export.xls.auto.fit.row" value="true"/>
+                                    <property name="net.sf.jasperreports.export.xls.auto.fit.column" value="true"/>
+                                </reportElement>
+                                <box>
+                                    <leftPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                    <bottomPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                    <rightPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                </box>
+                                <textElement verticalAlignment="Middle"/>
+                                <textFieldExpression><![CDATA[$V{name}]]></textFieldExpression>
+                            </textField>
+                        </cellContents>
+                    </crosstabRowHeader>
+                    <crosstabTotalRowHeader>
+                        <cellContents>
+                            <staticText>
+                                <reportElement x="0" y="0" width="-2147483648" height="-2147483648"
+                                               uuid="5f60a3df-d94d-4e3a-a633-7d520bff8766"/>
+                                <text><![CDATA[Total name]]></text>
+                            </staticText>
+                        </cellContents>
+                    </crosstabTotalRowHeader>
+                </rowGroup>
+                <columnGroup name="G" height="30" headerPosition="Stretch">
+                    <bucket class="java.lang.String">
+                        <bucketExpression><![CDATA[$F{G}]]></bucketExpression>
+                    </bucket>
+                    <crosstabColumnHeader>
+                        <cellContents mode="Opaque" style="Crosstab_CH">
+                            <textField>
+                                <reportElement style="Crosstab_CG" x="0" y="0" width="55" height="30"
+                                               uuid="1198279d-63a0-43c4-ba7f-3d1f796a2b95"/>
+                                <box>
+                                    <bottomPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                    <rightPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                </box>
+                                <textFieldExpression><![CDATA[$V{G}]]></textFieldExpression>
+                            </textField>
+                        </cellContents>
+                    </crosstabColumnHeader>
+                    <crosstabTotalColumnHeader>
+                        <cellContents>
+                            <staticText>
+                                <reportElement x="0" y="0" width="-2147483648" height="-2147483648"
+                                               uuid="63d46db9-3dcd-4bea-9544-983fda455e9f"/>
+                                <text><![CDATA[Total G]]></text>
+                            </staticText>
+                        </cellContents>
+                    </crosstabTotalColumnHeader>
+                </columnGroup>
+                <columnGroup name="Y" height="20" headerPosition="Stretch">
+                    <bucket class="java.lang.String">
+                        <bucketExpression><![CDATA[$F{Y}]]></bucketExpression>
+                    </bucket>
+                    <crosstabColumnHeader>
+                        <cellContents mode="Opaque" style="Crosstab_CH">
+                            <textField>
+                                <reportElement style="Crosstab_CG" stretchType="ContainerHeight" x="0" y="0" width="55"
+                                               height="20" uuid="d92e742b-dcfd-4517-9098-0899279e04c9"/>
+                                <box>
+                                    <bottomPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                    <rightPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                </box>
+                                <textFieldExpression><![CDATA[$V{Y}]]></textFieldExpression>
+                            </textField>
+                        </cellContents>
+                    </crosstabColumnHeader>
+                    <crosstabTotalColumnHeader>
+                        <cellContents>
+                            <staticText>
+                                <reportElement x="0" y="0" width="-2147483648" height="-2147483648"
+                                               uuid="63ab10f7-9c46-4a49-b8d6-ef8d7ce480de"/>
+                                <text><![CDATA[Total Y]]></text>
+                            </staticText>
+                        </cellContents>
+                    </crosstabTotalColumnHeader>
+                </columnGroup>
+                <columnGroup name="M" height="20" mergeHeaderCells="false">
+                    <bucket class="java.lang.String">
+                        <bucketExpression><![CDATA[$F{M}]]></bucketExpression>
+                    </bucket>
+                    <crosstabColumnHeader>
+                        <cellContents backcolor="#127AC4" mode="Opaque" style="Crosstab_CH">
+                            <textField isBlankWhenNull="true">
+                                <reportElement style="Crosstab_CG" x="0" y="0" width="55" height="20"
+                                               uuid="fd3a3369-b616-4fe4-86f2-838c88764ec5"/>
+                                <box>
+                                    <rightPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                </box>
+                                <textFieldExpression><![CDATA[$V{M}]]></textFieldExpression>
+                            </textField>
+                        </cellContents>
+                    </crosstabColumnHeader>
+                    <crosstabTotalColumnHeader>
+                        <cellContents>
+                            <staticText>
+                                <reportElement x="0" y="0" width="-2147483648" height="-2147483648"
+                                               uuid="78674df8-5e36-4771-aca0-8d84e4eb89ea"/>
+                                <text><![CDATA[Total M]]></text>
+                            </staticText>
+                        </cellContents>
+                    </crosstabTotalColumnHeader>
+                </columnGroup>
+                <measure name="value_MEASURE" class="java.lang.String">
+                    <measureExpression><![CDATA[$F{VALUE}]]></measureExpression>
+                </measure>
+                <crosstabCell width="55" height="20">
+                    <cellContents mode="Opaque" style="Crosstab_CD">
+                        <textField>
+                            <reportElement stretchType="ContainerHeight" x="0" y="0" width="55" height="20"
+                                           uuid="27aff026-dcf2-4074-b9b4-87627e40453d"/>
+                            <box>
+                                <bottomPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                                <rightPen lineWidth="0.5" lineColor="#7DBEE3"/>
+                            </box>
+                            <textElement textAlignment="Center" verticalAlignment="Middle">
+                                <paragraph rightIndent="5"/>
+                            </textElement>
+                            <textFieldExpression>
+                                <![CDATA[$V{value_MEASURE} == null ? "â€”" : $V{value_MEASURE}]]></textFieldExpression>
+                        </textField>
+                    </cellContents>
+                </crosstabCell>
+            </crosstab>
+        </band>
+    </detail>
+</jasperReport>

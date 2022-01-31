@@ -94,6 +94,17 @@
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 			</line>
+
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle" evaluationTime="Column">
+				<reportElement x="0" y="0" width="80" height="60" uuid="28852949-b291-4175-a704-63f5b8dbf5dc"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<imageExpression><![CDATA["images/image.jpeg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 
