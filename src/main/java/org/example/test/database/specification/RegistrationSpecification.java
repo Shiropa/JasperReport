@@ -1,6 +1,5 @@
 package org.example.test.database.specification;
 
-import lombok.RequiredArgsConstructor;
 import org.example.test.database.entities.Registration;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
@@ -13,7 +12,7 @@ public class RegistrationSpecification {
 
     public Specification<Registration> findRegistrationByMadrasahIdAndBoardId(Short madrasahId, Short boardId) {
 
-        return (Specification<Registration>) (root, query, cb) -> {
+        return (root, query, cb) -> {
             Predicate[] predicates = new Predicate[2];
             predicates[0] = cb.equal(root.get("madrasah").get("board").get("id"), boardId);
             predicates[1] = cb.equal(root.get("madrasah").get("id"), madrasahId);

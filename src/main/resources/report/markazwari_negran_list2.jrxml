@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="registered_applicant" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="60bc35a4-6f88-4c1a-a7b8-6469ad0504db">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <style name="Base" isDefault="true" fontName="Kalpurush" fontSize="10"/>
+    <style name="Table_TH" mode="Opaque" backcolor="#F0F8FF" vTextAlign="Middle" vImageAlign="Middle">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#FFFFFF" vTextAlign="Middle" vImageAlign="Middle">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF" vTextAlign="Middle" vImageAlign="Middle">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <subDataset name="applicants" uuid="03e4be71-cd23-408c-b88b-860e37343d85">
+        <queryString>
+            <![CDATA[]]>
+        </queryString>
+        <field name="registrationId" class="java.lang.String"/>
+        <field name="name" class="java.lang.String"/>
+        <field name="nameBn" class="java.lang.String"/>
+        <field name="arabicName" class="java.lang.String"/>
+        <field name="fatherName" class="java.lang.String"/>
+        <field name="fatherNameBn" class="java.lang.String"/>
+        <field name="fatherNameAr" class="java.lang.String"/>
+        <field name="motherName" class="java.lang.String"/>
+        <field name="motherNameBn" class="java.lang.String"/>
+        <field name="motherNameAr" class="java.lang.String"/>
+        <field name="dateOfBirth" class="java.time.LocalDate"/>
+    </subDataset>
+    <subDataset name="madrasah" uuid="03e4be71-cd23-408c-b88b-860e37343d85">
+        <queryString>
+            <![CDATA[]]>
+        </queryString>
+        <field name="code" class="java.lang.String"/>
+        <field name="nameBn" class="java.lang.String"/>
+        <field name="registrations" class="java.util.List"/>
+    </subDataset>
+    <parameter name="data" class="java.util.List"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="120" splitType="Stretch">
+            <staticText>
+                <reportElement x="101" y="0" width="600" height="47" uuid="cbec7d9c-b2d3-440c-b823-b38e424e5b3e"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[আল-হাইআতুল উলয়া লিল-জামি’আতিল কওমিয়া বাংলাদেশ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="101" y="40" width="600" height="40" uuid="d98b9250-2659-42a8-8762-22d42b3aad81"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[দাওরায়ে হাদীস (তাকমীল) পরীক্ষা ১৪৪৩ হিজরী/১৪২৮ বঙ্গাব্দ/২২২২ ঈসাব্দ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="101" y="75" width="600" height="44" uuid="1ea0ea6b-b213-474b-b3a2-d16196cff4cb"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[নিবন্ধিত পরীক্ষার্থীদের অন্তর্ভুক্তি ফরম ]]></text>
+            </staticText>
+            <line>
+                <reportElement x="268" y="110" width="266" height="1" uuid="7601a24a-5c6b-40a1-8ce4-1fa629b1e918">
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+            </line>
+        </band>
+    </title>
+    <detail>
+        <band height="201" splitType="Stretch">
+            <componentElement>
+                <reportElement x="0" y="4" width="801" height="196" uuid="d29b49cb-1c36-4474-9a27-c8ad8e64542b"/>
+                <jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+                    <datasetRun subDataset="madrasah" uuid="b3dde82f-78b9-4992-a01e-21af76855c4b">
+                        <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{data})]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:listContents height="196" width="801">
+                        <componentElement>
+                            <reportElement x="0" y="5" width="801" height="118" uuid="5f02cb7d-2d32-405a-a4e4-cb55c18b49b3">
+                                <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+                                <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+                                <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+                                <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+                                <property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+                            </reportElement>
+                            <jr:table whenNoDataType="AllSectionsNoDetail">
+                                <datasetRun subDataset="applicants" uuid="b3dde82f-78b9-4992-a01e-21af76855c4b">
+                                    <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{registrations})]]></dataSourceExpression>
+                                </datasetRun>
+                                <jr:columnGroup width="800" uuid="ae5fcf02-a278-4fe3-9bfb-2fcf38ac6552">
+                                    <property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [6]"/>
+                                    <jr:columnHeader style="Table_CH" height="60" rowSpan="1">
+                                        <frame>
+                                            <reportElement x="0" y="0" width="800" height="60" uuid="edd15eb7-5b35-4844-894c-7cb723a0678f"/>
+                                            <staticText>
+                                                <reportElement x="0" y="0" width="40" height="30" uuid="ce49cc00-4942-4805-bac4-140ab9b9b9a4"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[ক্রম]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="40" y="0" width="300" height="30" uuid="4e9c2e3e-446e-44c3-ae5a-8eb47e803925"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[মারকায]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="340" y="0" width="100" height="30" uuid="31f02412-f532-4977-a110-bd82f78666a2"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[জোন]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="440" y="0" width="60" height="30" uuid="556384f5-7fdd-4184-968b-832cbfa06ae6">
+                                                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                                                </reportElement>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[পরীক্ষার্থী]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="500" y="0" width="60" height="30" uuid="96227732-d607-40b9-9ddc-edc2cf110d34">
+                                                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                                                </reportElement>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[মোট]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="560" y="0" width="60" height="30" uuid="ef93a953-502e-41c6-b239-ae6c6a3168e4">
+                                                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                                                </reportElement>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[প্রধান]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="620" y="0" width="60" height="30" uuid="e0ce523f-ae88-49a5-a177-9a198ce3e39d">
+                                                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                                                </reportElement>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[সহ: প্রধান]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="680" y="0" width="60" height="30" uuid="98dc7e44-fa2d-44fb-a8f2-51eaf130cf20">
+                                                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                                                </reportElement>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[সরকারী]]></text>
+                                            </staticText>
+                                            <staticText>
+                                                <reportElement x="740" y="0" width="60" height="30" uuid="7bdd164d-671d-48a5-82b8-13fa74771c35">
+                                                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                                                </reportElement>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[স্থানীয়]]></text>
+                                            </staticText>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="0" y="30" width="40" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="40" y="30" width="300" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="340" y="30" width="100" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="440" y="30" width="60" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="500" y="30" width="60" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="560" y="30" width="60" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="620" y="30" width="60" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="680" y="30" width="60" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="740" y="30" width="60" height="30" uuid="a561dcee-f946-4d37-8bed-80c030572c62"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[]]></textFieldExpression>
+                                            </textField>
+                                        </frame>
+                                    </jr:columnHeader>
+                                    <jr:column width="40" uuid="37d0a257-a576-43e0-8f78-99a7e03cb094">
+                                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+                                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+                                        <jr:detailCell style="Table_TD" height="30"/>
+                                    </jr:column>
+                                    <jr:column width="60" uuid="c3a0c33e-34bd-413e-bd07-20eedbdf3a94">
+                                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+                                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                                            <staticText>
+                                                <reportElement x="0" y="0" width="60" height="30" uuid="0b08f63c-8627-4381-929a-ca2605bc1eb6"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[পদবী]]></text>
+                                            </staticText>
+                                        </jr:columnHeader>
+                                        <jr:detailCell style="Table_TD" height="30">
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="0" y="0" width="60" height="30" uuid="ce7052b9-0ddd-4774-b51d-3d7789701ce6"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[$F{registrationId}]]></textFieldExpression>
+                                            </textField>
+                                        </jr:detailCell>
+                                    </jr:column>
+                                    <jr:column width="60" uuid="eeeac8a9-f822-4b88-88ca-48e77a690c32">
+                                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+                                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                                            <staticText>
+                                                <reportElement x="0" y="0" width="60" height="30" uuid="2905c7f5-9cb9-4f70-9fa8-0a11ff1c424e"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[নেগরান কোড]]></text>
+                                            </staticText>
+                                        </jr:columnHeader>
+                                        <jr:detailCell style="Table_TD" height="30">
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="0" y="0" width="60" height="30" uuid="0f62c1d3-bf69-4b5f-9fb9-669e8a54e14f"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[$F{registrationId}]]></textFieldExpression>
+                                            </textField>
+                                        </jr:detailCell>
+                                    </jr:column>
+                                    <jr:column width="180" uuid="eeeac8a9-f822-4b88-88ca-48e77a690c32">
+                                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+                                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                                            <staticText>
+                                                <reportElement x="0" y="0" width="180" height="30" uuid="2905c7f5-9cb9-4f70-9fa8-0a11ff1c424e"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[ নাম ]]></text>
+                                            </staticText>
+                                        </jr:columnHeader>
+                                        <jr:detailCell style="Table_TD" height="30">
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="0" y="0" width="180" height="30" uuid="0f62c1d3-bf69-4b5f-9fb9-669e8a54e14f"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+                                            </textField>
+                                        </jr:detailCell>
+                                    </jr:column>
+                                    <jr:column width="80" uuid="abe9fadc-3477-42d0-b424-0b7ba7487bc7">
+                                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+                                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                                            <staticText>
+                                                <reportElement mode="Transparent" x="0" y="0" width="80" height="30" uuid="94f34cd3-2bb8-466d-a643-310a84fdb40e"/>
+                                                <box padding="3">
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[মোবাইল নং]]></text>
+                                            </staticText>
+                                        </jr:columnHeader>
+                                        <jr:detailCell style="Table_TD" height="30">
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="0" y="0" width="80" height="30" uuid="099dcc30-1712-4914-bee2-c7294962ca22"/>
+                                                <box leftPadding="2">
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[$F{registrationId}]]></textFieldExpression>
+                                            </textField>
+                                        </jr:detailCell>
+                                    </jr:column>
+                                    <jr:column width="380" uuid="8d3223ec-0fc0-4df3-ad43-33f6269ed776">
+                                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+                                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                                            <staticText>
+                                                <reportElement x="0" y="0" width="380" height="30" uuid="ea7647c3-33c4-4899-a262-6555a6e56540"/>
+                                                <box>
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                                    <font isBold="true"/>
+                                                </textElement>
+                                                <text><![CDATA[ঠিকানা]]></text>
+                                            </staticText>
+                                        </jr:columnHeader>
+                                        <jr:detailCell style="Table_TD" height="30">
+                                            <textField isBlankWhenNull="true">
+                                                <reportElement x="0" y="0" width="380" height="30" uuid="099dcc30-1712-4914-bee2-c7294962ca22"/>
+                                                <box padding="3">
+                                                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                                                </box>
+                                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                                <textFieldExpression><![CDATA[$F{dateOfBirth}]]></textFieldExpression>
+                                            </textField>
+                                        </jr:detailCell>
+                                    </jr:column>
+                                </jr:columnGroup>
+                            </jr:table>
+                        </componentElement>
+                    </jr:listContents>
+                </jr:list>
+            </componentElement>
+        </band>
+    </detail>
+    <detail>
+
+    </detail>
+</jasperReport>
