@@ -1,10 +1,10 @@
 package org.example.test.services;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.test.database.entities.Madrasah;
+import org.example.test.converter.MadrasahToMadrasahDTO;
 import org.example.test.database.repositories.MadrasahRepository;
 import org.example.test.dto.MadrasahDTO;
-import org.example.test.utils.Converter;
+import org.example.test.dto.RegistrationDTO;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,16 +15,18 @@ import java.util.Map;
 
 @Slf4j
 @Service
-public class MadrasahReportService extends Converter<Madrasah, MadrasahDTO> {
+public class MadrasahReportService {
 
     private final RegistrationReportService registrationReportService;
     private final MadrasahRepository madrasahRepository;
     private final JasperReportService jasperReportService;
+    private final MadrasahToMadrasahDTO madrasahToMadrasahDTO;
 
-    public MadrasahReportService(RegistrationReportService registrationReportService, MadrasahRepository madrasahRepository, JasperReportService jasperReportService) {
+    public MadrasahReportService(RegistrationReportService registrationReportService, MadrasahRepository madrasahRepository, JasperReportService jasperReportService, MadrasahToMadrasahDTO madrasahToMadrasahDTO) {
         this.registrationReportService = registrationReportService;
         this.madrasahRepository = madrasahRepository;
         this.jasperReportService = jasperReportService;
+        this.madrasahToMadrasahDTO = madrasahToMadrasahDTO;
     }
 
     public void exportMadrasahPdfFile(HttpServletResponse response) {
@@ -34,21 +36,23 @@ public class MadrasahReportService extends Converter<Madrasah, MadrasahDTO> {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("data", results);
 
-        jasperReportService.showReport(response, parameters, "madrasah_with_applicant.jrxml");
+        jasperReportService.generateReport(response, parameters, "madrasah_with_applicant.jrxml", true);
 
     }
 
 
     private List<MadrasahDTO> getAllMadrasahWithApplicant() {
-        List<Madrasah> madrasahs = madrasahRepository.findAll();
-
         List<MadrasahDTO> madrasahDTOList = new ArrayList<>();
-        madrasahs.forEach(e -> {
-            MadrasahDTO madrasahDTO = convert(e);
-            madrasahDTO.setRegistrations(registrationReportService.getRegistrationsByMadrasahId(e.getId()));
-            if (!madrasahDTO.getRegistrations().isEmpty()) {
+
+        madrasahRepository.findAll().forEach(e -> {
+            List<RegistrationDTO> registrations = registrationReportService.getRegistrationsByMadrasahId(e.getId());
+
+            if (!registrations.isEmpty()) {
+                MadrasahDTO madrasahDTO = madrasahToMadrasahDTO.convert(e);
+                madrasahDTO.setRegistrations(registrations);
                 madrasahDTOList.add(madrasahDTO);
             }
+
         });
         return madrasahDTOList;
     }

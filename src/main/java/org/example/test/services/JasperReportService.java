@@ -18,15 +18,10 @@ public class JasperReportService {
     @Autowired
     private ResourceLoader resourceLoader;
     
-    void showReport(HttpServletResponse response, Map<String, Object> parameters, String fileName) {
+    void generateReport(HttpServletResponse response, Map<String, Object> parameters, String fileName, Boolean show) {
+        String type = show ? "inline" : "attachment";
         response.setContentType("application/pdf");
-        response.setHeader("Content-Disposition", "inline; filename=\"report.pdf\""); //for show
-        getReport(fileName, parameters, response);
-    }
-
-    void downloadReport(HttpServletResponse response, Map<String, Object> parameters, String fileName) {
-        response.setContentType("application/pdf");
-        response.setHeader("Content-Disposition", "attachment; filename=\"report.pdf\""); //for show
+        response.setHeader("Content-Disposition", type + "; filename=\"report.pdf\""); //for show
         getReport(fileName, parameters, response);
     }
 

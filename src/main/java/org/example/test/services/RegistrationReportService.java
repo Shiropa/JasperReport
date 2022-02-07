@@ -1,14 +1,12 @@
 package org.example.test.services;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.test.database.entities.Madrasah;
+import org.example.test.converter.RegistrationToRegistrationDTO;
 import org.example.test.database.entities.Registration;
 import org.example.test.database.repositories.RegistrationRepository;
 import org.example.test.database.specification.RegistrationSpecification;
 import org.example.test.dto.JasperReport.AdmittedRegisteredCandidateDTO;
-import org.example.test.dto.MadrasahDTO;
 import org.example.test.dto.RegistrationDTO;
-import org.example.test.utils.Converter;
 import org.example.test.utils.DateUtil;
 import org.example.test.utils.StringUtil;
 import org.modelmapper.ModelMapper;
@@ -24,21 +22,19 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class RegistrationReportService extends Converter<Registration, RegistrationDTO> {
+public class RegistrationReportService {
 
-    private final StringUtil stringUtil;
-    private final DateUtil dateUtil;
     private final RegistrationRepository repository;
     private final RegistrationSpecification specification;
     private final JasperReportService jasperReportService;
+    private final RegistrationToRegistrationDTO registrationToRegistrationDTO;
 
-    public RegistrationReportService(StringUtil stringUtil, DateUtil dateUtil, RegistrationRepository repository,
-                                     RegistrationSpecification specification, JasperReportService jasperReportService) {
-        this.dateUtil = dateUtil;
+    public RegistrationReportService(RegistrationRepository repository,
+                                     RegistrationSpecification specification, JasperReportService jasperReportService, RegistrationToRegistrationDTO registrationToRegistrationDTO) {
         this.repository = repository;
         this.specification = specification;
-        this.stringUtil = stringUtil;
         this.jasperReportService = jasperReportService;
+        this.registrationToRegistrationDTO = registrationToRegistrationDTO;
     }
 
     public void exportRegistrationPdfFile(HttpServletResponse response) {
@@ -50,7 +46,7 @@ public class RegistrationReportService extends Converter<Registration, Registrat
         parameters.put("madrasah", results.get(0).getMadrasah().getNameBn());
         parameters.put("items", results);
 
-        jasperReportService.showReport(response, parameters, "registered_applicant.jrxml");
+        jasperReportService.generateReport(response, parameters, "registered_applicant.jrxml", true);
 
     }
 
@@ -65,16 +61,16 @@ public class RegistrationReportService extends Converter<Registration, Registrat
         AtomicInteger serial = new AtomicInteger(1);
         return results.stream().map(m -> {
             AdmittedRegisteredCandidateDTO dto = new ModelMapper().map(m, AdmittedRegisteredCandidateDTO.class);
-            dto.setSerialNoBn(stringUtil.convertToBn(String.valueOf(serial.get())));
-            dto.setDateOfBirthBn(dateUtil.getSimpleDateFormatInBn(m.getDateOfBirth()));
-            dto.setRegistrationIdBn(stringUtil.convertToBn(m.getRegistrationId()));
+            dto.setSerialNoBn(StringUtil.convertToBn(String.valueOf(serial.get())));
+            dto.setDateOfBirthBn(DateUtil.getSimpleDateFormatInBn(m.getDateOfBirth()));
+            dto.setRegistrationIdBn(StringUtil.convertToBn(m.getRegistrationId()));
             serial.addAndGet(1);
             return dto;
         }).collect(Collectors.toList());
     }
 
     public List<RegistrationDTO> getRegistrationsByMadrasahId(Short id) {
-        return convert(repository.findAllByMadrasahId(id));
+        return registrationToRegistrationDTO.convert(repository.findAllByMadrasahId(id));
     }
 
 }

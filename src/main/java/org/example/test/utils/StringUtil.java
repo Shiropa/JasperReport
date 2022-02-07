@@ -1,13 +1,11 @@
 package org.example.test.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
 public class StringUtil {
 
-	public String convertToBn(String s) {
+	public static String convertToBn(String s) {
 		return s
 				.replaceAll("0", "০")
 				.replaceAll("1", "১")
