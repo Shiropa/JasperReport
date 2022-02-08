@@ -3,8 +3,6 @@ package org.example.test.database.specification;
 import org.example.test.database.entities.Registration;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
-
-import javax.persistence.criteria.Predicate;
 import java.util.Arrays;
 
 @Component
